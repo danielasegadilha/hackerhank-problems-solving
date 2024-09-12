@@ -11,17 +11,15 @@ public class Solution {
     // Complete the minimumSwaps function below.
     static int minimumSwaps(int[] arr) {
         
-        int swap = 0, i = 0;
+        int swap = 0;
         int intermediate;
         
-        while(swap + i < arr.length) {
-            if(arr[i] != i + 1) {
+        for(int i = 0; i < arr.length; i++) {
+            while(arr[i] != i + 1) {
                 intermediate = arr[i];
                 arr[i] = arr[intermediate - 1];
-                arr[intermediate] = intermediate;
+                arr[intermediate - 1] = intermediate;
                 swap ++;
-            } else {
-                i++;
             }
         }
         
@@ -57,3 +55,4 @@ public class Solution {
         scanner.close();
     }
 }
+
